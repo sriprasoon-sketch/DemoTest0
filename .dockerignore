@@ -1,0 +1,13 @@
+node_modules
+npm-debug.log
+.git
+.gitignore
+.env
+.env.local
+.vscode
+.idea
+*.md
+test.java
+test.class
+Rotate,java
+.DS_Store

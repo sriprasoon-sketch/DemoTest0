@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TODO App</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header>
+      <h1>TODO Planner</h1>
+      <p>Manage tasks by category with reminders, location, and notifications.</p>
+    </header>
+
+    <section class="task-form-section">
+      <h2>Add a new task</h2>
+      <form id="task-form">
+        <label>Title<span>*</span>
+          <input type="text" id="title" placeholder="Task title" required />
+        </label>
+
+        <label>Category
+          <input type="text" id="category" placeholder="Work, Home, Errands..." />
+        </label>
+
+        <label>Reminder date/time
+          <input type="datetime-local" id="reminder" />
+        </label>
+
+        <label>Location
+          <input type="text" id="location" placeholder="Office, Grocery store..." />
+        </label>
+
+        <label class="checkbox-label">
+          <input type="checkbox" id="notification" />
+          Enable notification
+        </label>
+
+        <label>Notes
+          <textarea id="notes" rows="3" placeholder="Optional notes"></textarea>
+        </label>
+
+        <button type="submit">Add Task</button>
+      </form>
+    </section>
+
+    <section class="task-list-section">
+      <div class="task-list-header">
+        <h2>Tasks</h2>
+        <div class="filters">
+          <label>Filter by category
+            <select id="category-filter">
+              <option value="all">All</option>
+            </select>
+          </label>
+          <button id="refresh-tasks" type="button">Refresh</button>
+        </div>
+      </div>
+
+      <div id="task-list" class="task-list"></div>
+    </section>
+
+    <!-- Conflict Resolution Modal -->
+    <div id="conflict-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Schedule Conflict Detected</h3>
+          <button id="close-modal" class="close-button">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div id="conflict-info"></div>
+          <div class="reschedule-options">
+            <h4>Suggested Alternative Times:</h4>
+            <div id="time-slots" class="time-slots"></div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button id="proceed-anyway" class="secondary-button">Add Anyway</button>
+          <button id="add-selected" class="primary-button" disabled>Add with Selected Time</button>
+          <button id="cancel-add" class="cancel-button">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "name": "todo-web-app",
+  "version": "1.0.0",
+  "description": "A simple TODO web app with categories, reminders, locations, notifications, and file persistence.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "build": "echo 'Build complete. App is ready for deployment.'",
+    "docker:build": "docker build -t todo-app:latest .",
+    "docker:run": "docker run -p 3000:3000 -v $(pwd)/tasks.json:/app/tasks.json todo-app:latest",
+    "docker:compose": "docker-compose up -d",
+    "docker:stop": "docker-compose down"
+  },
+  "dependencies": {
+    "express": "^4.18.4"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
